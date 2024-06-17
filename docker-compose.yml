@@ -5,6 +5,6 @@ services:
     image: gateway
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./DockerFile
     ports:
       - 9000:9000
