@@ -47,5 +47,6 @@ jobs:
           script: |
             cd /home/ubuntu/sunjoo-server-gateway
             docker-compose down
+            git pull origin main
             docker pull ${{ secrets.DOCKER_USERNAME }}/gateway:latest
             docker-compose up -d --build
