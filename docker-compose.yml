@@ -8,18 +8,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - 9000:9000
+    networks:
+      - eureka-network
 
-  drinktionary:
-    image: drinktionary:latest
-    expose:
-      - "8081"
-
-  auth:
-    image: auth:latest
-    expose:
-      - "8090"
-
-#  sentimentAnalysis:
-#    image: sentimentanalysis:latest
-#    expose:
-#      - "8091"
+networks:
+  eureka-network:
+    driver: bridge

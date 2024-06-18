@@ -8,3 +8,4 @@ build/resources
 build/test-results
 build/tmp
 build/resolvedMainClassName
+*.xml

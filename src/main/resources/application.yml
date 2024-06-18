@@ -15,7 +15,7 @@ spring:
     gateway:
       routes:
         - id: auth
-          uri: http://localhost:8090/
+          uri: http://sunjoo-server-auth-spring-1:8090/
           predicates:
                 - Path=/auth/**
         - id: analyze
@@ -32,4 +32,4 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://sunjoo-server-eureka-eureka-1:8761/eureka/
