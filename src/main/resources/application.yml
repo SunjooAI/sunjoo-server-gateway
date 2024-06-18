@@ -7,34 +7,23 @@ spring:
   autoconfigure:
     exclude:
       - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  profiles:
+    include: jwt
   cloud:
     config:
         enabled: false
     gateway:
-      globalcors:
-        add-to-simple-url-handler-mapping: true
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins:
-              - 'http://xxxxxxxxxx'
-            allow-credentials: true
-            allowedHeaders: '*'
-            exposedHeaders: '*'
-            allowedMethods:
-              - POST
-              - GET
-              - PUT
-              - PATCH
-              - DELETE
-              - OPTIONS
       routes:
         - id: auth
           uri: http://localhost:8090/
           predicates:
                 - Path=/auth/**
-      default-filters:
-        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
-                
+        - id: analyze
+          uri: http://localhost:8092/
+          predicates:
+            - Path=/analyze/**
+          filters:
+            - name: AuthorizationHeaderFilter
 
 eureka:
   instance:
