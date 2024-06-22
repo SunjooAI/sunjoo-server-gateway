@@ -19,9 +19,15 @@ spring:
           predicates:
                 - Path=/auth/**
         - id: analyze
-          uri: http://localhost:8092/
+          uri: http://sunjoo-server-sentimentanalysis-sentimentAnalysis-1:8095/
           predicates:
             - Path=/analyze/**
+          filters:
+            - name: AuthorizationHeaderFilter
+        - id: drinktionary
+          uri: http://sunjoo-server-drinktionary-drinktionary-1:8091/
+          predicates:
+            - Path=/drinks/**
           filters:
             - name: AuthorizationHeaderFilter
 
