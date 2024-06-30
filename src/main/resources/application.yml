@@ -12,6 +12,7 @@ spring:
   cloud:
     config:
         enabled: false
+
     gateway:
       globalcors:
         corsConfigurations:
@@ -37,17 +38,17 @@ spring:
               - Authorization
       routes:
         - id: auth
-          uri: http://sunjoo-server-auth-spring-1:8090/
+          uri: http://13.124.194.48:8090/
           predicates:
                 - Path=/auth/**
         - id: analyze
-          uri: http://sunjoo-server-sentimentanalysis-sentimentAnalysis-1:8095/
+          uri: http://13.124.194.48:8095/
           predicates:
             - Path=/analyze/**
           filters:
             - name: AuthorizationHeaderFilter
         - id: drinktionary
-          uri: http://sunjoo-server-drinktionary-drinktionary-1:8091/
+          uri: http://13.124.194.48:8091/
           predicates:
             - Path=/drinks/**
           filters:
@@ -60,4 +61,5 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://sunjoo-server-eureka-eureka-1:8761/eureka/
+      defaultZone: http://13.124.194.48:8761/eureka/
+
