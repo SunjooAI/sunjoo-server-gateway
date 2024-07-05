@@ -50,5 +50,5 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/gateway:latest
             docker-compose build
             docker-compose up -d
-            docker network connect eureka-network sunjoo-server-gateway-gateway-1
-            docker restart sunjoo-server-gateway-gateway-1
+            docker network connect eureka-network sunjoo-server-gateway_gateway_1
+            docker restart sunjoo-server-gateway_gateway_1
