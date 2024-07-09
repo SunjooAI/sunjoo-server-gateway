@@ -18,7 +18,7 @@ spring:
         corsConfigurations:
           '[/**]':
             allowedOrigins:
-              - "http://localhost:3000"
+              - "http://localhost:3000, https://sunjoo-sand.vercel.app/"
             allow-credentials: true
             allowedHeaders:
               - x-requested-with
